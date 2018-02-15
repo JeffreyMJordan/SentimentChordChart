@@ -1,0 +1,26 @@
+This is a toy chord chart for plotting the communications of a certain sentiment to and from team members 
+
+I think I'll store the data as a kind of csv
+
+Team Member list: 
+1. Bob 
+2. Mary 
+3. John 
+
+3 is a good start for now. I can work on making it modular later 
+
+The key issue is getting the data into a proper matrix
+
+
+Chord charts have a few key objects 
+
+CHORDS 
+Chords represent bi-directional info from one node to another 
+They have start angles and end angles, representative of their place on a circle 
+
+
+ARCS 
+Basically a circle with the values on it 
+
+RIBBONS 
+The little drawing thingies that visually represent the chords 
