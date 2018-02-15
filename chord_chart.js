@@ -18,7 +18,7 @@ window.addEventListener('DOMContentLoaded', () => {
   
   //What does a ribbon's radius represent? This isn't obvious to me
   let ribbon = d3.ribbon().radius(innerRadius);
-  let colorScale = d3.scaleOrdinal().domain([1, 3]).range(['#FF0000', '#00FF00', '#00FF00']);
+  let colorScale = d3.scaleOrdinal().domain(d3.range(3)).range(['#FF0000', '#00FF00', '#0000FF']);
 
   let g = svg.append("g")
   .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
@@ -28,7 +28,16 @@ window.addEventListener('DOMContentLoaded', () => {
   let group = g.append("g").attr("class", "groups").selectAll("g").data(function(chords) { return chords.groups; }).enter().append("g");
 
   group.append("path")
-  .style("fill", function(d) { return color(d.index); })
-  .style("stroke", function(d) { return d3.rgb(color(d.index)).darker(); })
+  .style("fill", function(d) { return colorScale(d.index); })
+  .style("stroke", function(d) { return d3.rgb(colorScale(d.index)).darker(); })
   .attr("d", arc);
+
+  g.append("g")
+  .attr("class", "ribbons")
+  .selectAll("path")
+  .data(function(chords) { return chords; })
+  .enter().append("path")
+    .attr("d", ribbon)
+    .style("fill", function(d) { return colorScale(d.target.index); })
+    .style("stroke", function(d) { return d3.rgb(colorScale(d.target.index)).darker(); });
 });
