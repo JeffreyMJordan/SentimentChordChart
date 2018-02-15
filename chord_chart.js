@@ -24,4 +24,11 @@ window.addEventListener('DOMContentLoaded', () => {
   .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
   .datum(chord(matrix));
   
+
+  let group = g.append("g").attr("class", "groups").selectAll("g").data(function(chords) { return chords.groups; }).enter().append("g");
+
+  group.append("path")
+  .style("fill", function(d) { return color(d.index); })
+  .style("stroke", function(d) { return d3.rgb(color(d.index)).darker(); })
+  .attr("d", arc);
 });
