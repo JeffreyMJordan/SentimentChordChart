@@ -1,0 +1,23 @@
+{
+  "name": "ChordChartForSentimentComms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "chord_chart.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JeffreyMJordan/SentimentChordChart.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JeffreyMJordan/SentimentChordChart/issues"
+  },
+  "homepage": "https://github.com/JeffreyMJordan/SentimentChordChart#readme",
+  "dependencies": {
+    "d3": "^4.13.0"
+  }
+}
